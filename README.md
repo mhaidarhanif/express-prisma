@@ -10,7 +10,7 @@ tags:
 
 # ExpressJS Prisma Example
 
-This is an [ExpressJS](https://expressjs.com/) REST API that uses [Prisma](https://www.prisma.io/) to connect to a Postgres database and CRUD todos.
+This is an [ExpressJS](https://expressjs.com/) REST API that uses [Prisma](https://www.prisma.io/) to connect to a Postgres database and CRUD contacts.
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/LqCw_O)
 
@@ -31,10 +31,10 @@ This is an [ExpressJS](https://expressjs.com/) REST API that uses [Prisma](https
 
 ## 📝 Notes
 
-This is a simple REST API for todo items. The available routes are
+This is a simple REST API for contact items. The available routes are
 
-- `GET /todos` gets all todos
-- `POST /todos` creates a new using `text` in the JSON body
-- `GET /todos/:id` gets a todo by id
-- `PUT /todos/:id` updates a todo by id
-- `DELETE /todos/:id` deletes a todo by id
+- `GET /contacts` gets all contacts
+- `POST /contacts` creates a new using `text` in the JSON body
+- `GET /contacts/:id` gets a contact by id
+- `PUT /contacts/:id` updates a contact by id
+- `DELETE /contacts/:id` deletes a contact by id

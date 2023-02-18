@@ -13,48 +13,48 @@ app.use(express.json());
 app.use(express.raw({ type: "application/vnd.custom-type" }));
 app.use(express.text({ type: "text/html" }));
 
-app.get("/todos", async (req, res) => {
-  const todos = await prisma.todo.findMany({
+app.get("/contacts", async (req, res) => {
+  const contacts = await prisma.contact.findMany({
     orderBy: { createdAt: "desc" },
   });
 
-  res.json(todos);
+  res.json(contacts);
 });
 
-app.post("/todos", async (req, res) => {
-  const todo = await prisma.todo.create({
+app.post("/contacts", async (req, res) => {
+  const contact = await prisma.contact.create({
     data: {
-      completed: false,
-      createdAt: new Date(),
-      text: req.body.text ?? "Empty todo",
+      contacted: false,
+      name: req.body.name ?? "No name",
+      email: req.body.email ?? "No email",
     },
   });
 
-  return res.json(todo);
+  return res.json(contact);
 });
 
-app.get("/todos/:id", async (req, res) => {
-  const id = req.params.id;
-  const todo = await prisma.todo.findUnique({
+app.get("/contacts/:contactId", async (req, res) => {
+  const id = req.params.contactId;
+  const contact = await prisma.contact.findUnique({
     where: { id },
   });
 
-  return res.json(todo);
+  return res.json(contact);
 });
 
-app.put("/todos/:id", async (req, res) => {
-  const id = req.params.id;
-  const todo = await prisma.todo.update({
+app.put("/contacts/:contactId", async (req, res) => {
+  const id = req.params.contactId;
+  const contact = await prisma.contact.update({
     where: { id },
     data: req.body,
   });
 
-  return res.json(todo);
+  return res.json(contact);
 });
 
-app.delete("/todos/:id", async (req, res) => {
+app.delete("/contacts/:id", async (req, res) => {
   const id = req.params.id;
-  await prisma.todo.delete({
+  await prisma.contact.delete({
     where: { id },
   });
 
@@ -67,13 +67,13 @@ app.get("/", async (req, res) => {
   <h1>REST API</h1>
   <h2>Available Routes</h2>
   <pre>
-    GET, POST /todos
-    GET, PUT, DELETE /todos/:id
+    GET, POST /contacts
+    GET, PUT, DELETE /contacts/:id
   </pre>
   `.trim()
   );
 });
 
 app.listen(Number(port), "0.0.0.0", () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`REST API listening at http://localhost:${port}`);
 });

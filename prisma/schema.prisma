@@ -10,9 +10,12 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Todo {
+model Contact {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  text      String
-  completed Boolean
+  updatedAt DateTime @updatedAt
+
+  name      String
+  email     String
+  contacted Boolean
 }
