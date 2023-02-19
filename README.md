@@ -23,18 +23,8 @@ This is an [ExpressJS](https://expressjs.com/) REST API that uses [Prisma](https
 
 ## 💁‍♀️ How to use
 
-- Install dependencies `yarn`
+- Install dependencies `npm`
 - [Provision a Postgres container on Railway](https://dev.new)
 - Connect to your Railway project with `railway link`
-- Migrate the database `railway run yarn migrate:dev`
-- Run the Server app `railway run yarn dev`
-
-## 📝 Notes
-
-This is a simple REST API for contact items. The available routes are
-
-- `GET /contacts` gets all contacts
-- `POST /contacts` creates a new using `text` in the JSON body
-- `GET /contacts/:id` gets a contact by id
-- `PUT /contacts/:id` updates a contact by id
-- `DELETE /contacts/:id` deletes a contact by id
+- Migrate the database `railway run npm run migrate:dev`
+- Run the Server app `railway run npm run dev`
